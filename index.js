@@ -13,7 +13,7 @@ function displayRepositories(){
     const repoOwner=response[i].owner.login.toString();
     const repoName=response[i].name.toString();
     //debugger;
-    repoList += `<li>${repoName}<a href="#" onclick=getCommits("${repoName}","${repoOwner}")>Get Commits</a>
+    repoList += `<li>${repoName}<a href="#" data-repository="${repoName}" data-username="${repoOwner}" onclick="getCommits(this)">Get Commits</a>
     <a href="#" data-repo="${repoName}" data-repo-owner="${repoOwner}" onclick="getBranches(this)">Get Branches</a>https://github.com/${repoOwner}/${repoName}</li>`;
   }
   repoList += '</ul>';
@@ -52,8 +52,8 @@ function displayCommits(){
 
 function getCommits(element){
   // /repos/:owner/:repo/git/commits/
-  const repo=element.dataset.repo;
-  const owner=element.dataset.repoOwner;
+  const repo=element.dataset.repository;
+  const owner=element.dataset.username;
   console.log(repo,owner)
   const xhr=new XMLHttpRequest();
   xhr.addEventListener("load",displayCommits);
