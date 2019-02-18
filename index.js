@@ -27,7 +27,7 @@ function showRepositories(){
     const repoOwner=response[i].owner.login.toString();
     const repoName=response[i].name.toString();
     //debugger;
-    repoList += `<li>${repoName}<a href="#" data-repo="${repoName}" data-repo-owner="${repoOwner}" onclick=getCommits(this)>Get Commits</a>
+    repoList += `<li>${repoName}<a href="#" data-repo="${repoName}" data-repo-owner="${repoOwner}" onclick="getCommits(this)">Get Commits</a>
     <a href="#" data-repo="${repoName}" data-repo-owner="${repoOwner}" onclick="getBranches(this)">Get Branches</a>https://github.com/${repoOwner}/${repoName}</li>`;
   }
   repoList += '</ul>';
