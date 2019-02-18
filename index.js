@@ -50,7 +50,7 @@ function displayCommits(){
 }
 
 
-function getCommits(){
+function getCommits(element){
   // /repos/:owner/:repo/git/commits/
   const repo=element.dataset.repo;
   const owner=element.dataset.repoOwner;
