@@ -54,6 +54,7 @@ function getCommits(element){
   // /repos/:owner/:repo/git/commits/
   const repo=element.dataset.repo;
   const owner=element.dataset.repoOwner;
+  console.log(repo,owner)
   const xhr=new XMLHttpRequest();
   xhr.addEventListener("load",displayCommits);
   xhr.open("GET",`https://api.github.com/repos/${owner}/${repo}/commits`)
